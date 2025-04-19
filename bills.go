@@ -15,10 +15,7 @@ type bill struct {
 func newBill(name string) bill {
 	b := bill{
 		name: name,
-		items: map[string]float64{
-			"rice": 3.99,
-			"yam":  2.66,
-		},
+		items: map[string]float64{},
 		tip: 0,
 	}
 	return b

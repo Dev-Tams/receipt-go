@@ -5,11 +5,11 @@ import "fmt"
 func main() {
 
 	// mybill := newBill("mario's bill")
-	// mybill.addTip(2)
-	// mybill.addItem("beans", 7)
-
+	
 	mybill := createBill()
+	// mybill.addItem("beans", 7)
+	// mybill.addTip(2)
 	promptOptions(mybill)
 
-	fmt.Println(mybill.format())
+	fmt.Println(mybill)
 }
