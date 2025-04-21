@@ -43,6 +43,7 @@ func promptOptions(b bill) {
 		fmt.Println(name, price)
 		b.addItem(name, p)
 		fmt.Println("items added", name, price)
+		promptOptions(b)
 
 	case "t":
 		tip, _ := getInput("Kindly enter tip(optional):", reader)
@@ -56,10 +57,13 @@ func promptOptions(b bill) {
 		}
 		fmt.Println(tip)
 		b.addTip(t)
+		promptOptions(b)
+
 
 
 	case "s":
-		fmt.Println("Saved bill", b)
+		b.save()
+		fmt.Printf("saved %v's bill\n", b.name)
 
 
 	default:
@@ -70,7 +74,6 @@ func promptOptions(b bill) {
 
 func createBill() bill {
 
-	//create reader that reads from standard input
 
 	//read and request input from function get input
 	name, _ := getInput("Kindly enter your name:", reader)

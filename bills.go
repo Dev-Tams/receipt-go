@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-
+	"os"
 )
 
 type bill struct {
@@ -52,4 +52,23 @@ func (b *bill) addTip(tip float64){
 
 func (b *bill) addItem(name string, price float64){
 	b.items[name] = price
+}
+
+
+func (b *bill) addTax(tax float64){
+	tax = b.tax 
+}
+
+//save bill
+
+func (b *bill) save(){
+	data := []byte(b.format())
+
+	//using os pkg
+	err := os.WriteFile("bills/"+b.name+".txt", data, 0644)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Saved!")
+	
 }
